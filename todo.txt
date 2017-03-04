@@ -1,0 +1,24 @@
+V-make Go have an orginized layout with space for pass button & chat
+V-implement 'pass' move logic
+V-implement endgame logic (win/lose)
+V-implement resign
+V-implement go back to lobby after game finished
+-fix BUG when back to lobby & then rematch - the button are still like endgame. solution: clear_widgets on scrren entry add the board & info widgets programmatically
+-implement rematch
+-make game info label fit info section
+-implement chat
+-implement game spectating
+-add an option to play against ai in 'create game'
+-implement ai:
+    -train NN from sgf files:
+           ``-read about batches in training
+           -divide sgf data into batches
+    V-handle invalid moves
+    -in training: train data with rotations
+    -in training data: make inputs: empty/me/enemy (instead of empty/black/white). should improve nn efficiency. => also remove input data for who's turn it is (with this tweak it's redundant).
+    -do a big training session
+    -implement MCTS:
+        V-convert current MCTS to work with Go. should work be generalized to work with a policy & a game state
+        -Vcheck MCTS with random policyV & nn policy
+        -search for performance bottlenecks with MCTS
+    -train heavy NN for expansion phase & light NN for rollouts to increase performance

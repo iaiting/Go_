@@ -1,0 +1,42 @@
+# Reference Lobby.py
+
+#: import main lobby
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+
+
+
+<LobbyScreen>:
+	players_list: players_list_view
+	BoxLayout:
+		orientation: "vertical"
+		
+		padding:10
+		spacing:10
+		
+		BoxLayout:
+			size_hint_y: None
+			height: "40dp"
+			
+			Button:
+				text: "Available Matches"
+				on_press: root.bAvailableMatches()
+			
+			Button:
+				text: "Watch Matches"
+				on_press: root.bWatchMatches()
+			
+			Button:
+				text: "Create Match"
+				on_press: root.bCreateMatch()
+		ListView:
+			id: players_list_view
+			adapter:
+				ListAdapter(data=[str(x) for x in xrange(100)], cls = ListItemButton)
+				
+		
+		Button:
+			text: "Refresh"
+			on_press: root.bRefresh()
+			size_hint:(1, 0.1)

@@ -1,0 +1,109 @@
+<GoGame>:
+	
+	
+	go_board_widget:go_board_widget_id
+	go_info_widget:go_info_widget_id
+	territory_button: territory_button_id
+	pass_button:pass_button_id
+	resign_button:resign_button_id
+	chat_text_input:chat_text_input_id
+	chat_text_box:chat_text_box_id
+	canvas.before:
+        Color:
+            rgba: 245/255.0, 237/255.0 , 127/255.0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+	Widget:
+	
+		id:go_board_widget_id
+		size_hint: .7,1
+	
+	BoxLayout:
+		orientation:'vertical'
+	
+		canvas.before:
+			Color:
+				rgba: 120/255.0, 120/255.0 , 120/255.0, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		
+		id:go_info_widget_id
+		size_hint: .4,1
+	
+		Label:
+			font_size: root.label_fontsize
+		    size_hint:(1,0.3)
+			text: root.label_text
+			markup: True
+		
+		Button:
+			id:territory_button_id
+			text:'Territory'
+			size_hint:(1,0.1)
+		
+		Button:
+			id:pass_button_id
+			text:'PASS'
+			size_hint:(1,0.1)
+			
+			
+		Button:
+			id:resign_button_id
+			text:'RESIGN'
+			size_hint:(1,0.1)
+		
+		
+		BoxLayout:
+			size_hint:(1,0.3)
+			orientation:'vertical'
+			canvas.before:
+				Color:
+					rgba: 255/255.0, 255/255.0 , 255/255.0, 1
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				
+			Label:
+				size_hint:(1,0.7)
+				font_size: root.label_fontsize * 0.5
+				id:chat_text_box_id
+				markup: True
+				text: "[color=ff3333] [/color]"
+				background_color: [1,1,1,1]
+			TextInput:
+				size_hint:(1,0.3)
+				text:"Enter chat"
+				multiline:False
+				id:chat_text_input_id
+		
+<LineWidget>:
+	canvas:
+		Color:
+			rgb: 0, 0, 0
+		Rectangle:
+			pos: self.startX, self.startY
+			size: self.sizeX, self.sizeY
+
+<StoneWidget>:
+	canvas:
+		Color:
+			rgb: self.R, self.G, self.B
+		Ellipse:
+			pos: self.x, self.y
+			size: self.size, self.size
+<StonePointer>:
+	canvas:
+		Color:
+			rgb: self.R, self.G, self.B
+		Rectangle:
+			pos: self.x + self.size*0.2, self.y + self.size*0.2
+			size: self.size * 0.6, self.size * 0.6
+		Color:
+			rgb: (self.R+1)%2, (self.G+1)%2, (self.B+1)%2
+
+		Rectangle:
+			pos: self.x + self.size*0.3, self.y + self.size*0.3
+			size: self.size * 0.4, self.size * 0.4
+			

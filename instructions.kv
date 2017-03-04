@@ -1,0 +1,31 @@
+<InstructionsScreen>:
+	canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "go_cartoon.jpg"
+
+
+	FloatLayout:
+
+
+        ScrollableLabel:
+            size_hint:(0.6,0.7)
+            pos_hint:{'center_x':.5, 'center_y':.6}
+            text:"[color=ffffff] [color=000000]GO[/color] is an abstract strategy board game for two players, in which the aim is to surround more territory than the opponent. \n -[color=000000]Move:[/color] The player having the turn puts one of his own stones on an empty point. \n [color=000000]The Capture Rule:[/color] If a player surrounds the opponent's stone or stones completely, he captures those stones and removes them from the board. \n [color=000000]The Repetition Rule:[/color] One may not play a move which repeats a previous board position. \n [color=000000]The Victory Rule:[/color] The player who controls (occupies or surrounds) more points than his opponent wins the game.[/color]"
+
+        Button:
+            text: "Back"
+            size_hint:(0.3,0.1)
+            pos_hint:{'center_x':.5, 'center_y':.1}
+            on_press: root.goto_main()
+
+
+<ScrollableLabel>:
+    Label:
+        size_hint_y: None
+        height: self.texture_size[1]
+        text_size: self.width, None
+        text: root.text
+        markup:True
+        font_size: 30

@@ -1,0 +1,35 @@
+<LoginScreen>:
+	username_input: username_textInput
+	canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "go_board_image.jpg"
+
+
+	FloatLayout:
+
+
+
+		Label:
+			size_hint:(0.8,0.1)
+			font_size:80
+			pos_hint:{'center_x':.5, 'center_y':.95}
+			text: "[color=ffffff]Go Online![/color]"
+			markup: True
+		
+		TextInput:
+			id: username_textInput
+			size_hint:(0.6,0.1)
+			pos_hint:{'center_x':.5, 'center_y':.6}
+			text: "username"
+		Button:
+			text: "GO"
+			size_hint:(0.3,0.1)
+			pos_hint:{'center_x':.5, 'center_y':.45}
+			on_press: root.goto_lobby()
+		Button:
+			text: "Instructions"
+			size_hint:(0.3,0.1)
+			pos_hint:{'center_x':.5, 'center_y':.3}
+			on_press: root.goto_instructions()
